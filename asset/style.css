@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
+:root {
+    --bg-dark: #0f0f0f;
+    --card-bg: #1a1a1a;
+    /* Ganti ke Emerald Green yang lebih tegas & cakep */
+    --accent: #2ECC71; 
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 95vh; /* Sedikit lebih tinggi */
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--card-bg);
+    border-radius: 30px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar h2 {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #444;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.menu-container ul { list-style: none; }
+.menu-container li { margin-bottom: 15px; }
+
+.menu-container a {
+    color: #888;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 15px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 14px;
+}
+
+.menu-container a:hover, .menu-container li.active a {
+    background: var(--glass);
+    color: var(--accent); /* Hover jadi warna emerald */
+}
+
+/* Pastikan scroll-behavior dipasang di kontainer yang meluap */
+.main-content {
+    overflow-y: auto;
+    scroll-behavior: smooth; /* Wajib ada di sini */
+    height: 100%; /* Pastikan dia punya tinggi tetap */
+    -webkit-overflow-scrolling: touch; /* Biar smooth di perangkat Apple */
+}
+
+/* Tambahkan jarak berhenti supaya judul section nggak 'nyundul' ke atas */
+section {
+    scroll-margin-top: 30px;
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+    /* TAMBAH JARAK DI SINI */
+    height: 150px;       /* Tingginya ditambah supaya judul nggak sesak */
+    margin-top: 20px;    /* Jarak dari paling atas layar */
+    margin-bottom: 60px; /* Jarak ke konten kartu di bawahnya */
+    
+    position: relative;
+}
+
+.main-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 48px; /* Sedikit diperbesar biar makin mantap */
+    font-weight: 800;
+    letter-spacing: -2px;
+    
+    /* Posisi tetap di tengah */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Jaga jarak aman antar kata */
+    word-spacing: 10px; 
+    
+    /* Gradasi tetap ada */
+    background: linear-gradient(to bottom, var(--warm-ivory) 50%, var(--natural));
+    -webkit-text-fill-color: transparent;
+}
+
+.header-logo {
+    width: 110px;
+    height: auto;
+    
+    /* POSISI LOGO TETAP DI KANAN */
+    position: absolute;
+    right: 0;
+}
+
+.header-logo { width: 40px; height: 40px; object-fit: contain; }
+
+/* Cards Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 25px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.4s;
+}
+
+/* Efek hover border menyala */
+.card:hover { 
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.card p { color: #666; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+.card h3 { font-size: 36px; margin: 10px 0; font-weight: 600; }
+.card span { 
+    font-size: 12px; 
+    color: var(--accent); 
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+/* Wide Card Chart */
+.wide-chart-card {
+    grid-column: span 3;
+    background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.chart-main {
+    height: 200px;
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #333;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.graph-area {
+    flex-grow: 1;
+    border-left: 1px solid #222;
+    border-bottom: 1px solid #222;
+    position: relative;
+}
+
+/* Table Style */
+.table-container {
+    background: var(--card-bg);
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.stats-table th { padding: 15px; color: #444; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.stats-table td { padding: 18px 15px; border-top: 1px solid #222; font-size: 14px; color: #ccc; }
+
+.badge {
+    background: rgba(46, 204, 113, 0.1); /* Background hijau transparan */
+    color: var(--accent);
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: 700;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+/* Switch Styling */
+.switch { position: relative; display: inline-block; width: 44px; height: 22px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #333; transition: .4s; border-radius: 34px;
+}
+.slider:before {
+    position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px;
+    background-color: white; transition: .4s; border-radius: 50%;
+}
+input:checked + .slider { background-color: var(--accent); }
+input:checked + .slider:before { transform: translateX(22px); }
+
+/* Status Info */
+.status-fixed-info {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: #666;
+    padding: 0 10px;
+}
+
+.status-indicator.online {
+    width: 8px; height: 8px; 
+    background: var(--accent); 
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--accent); /* Glow lebih kuat */
+}
+
+.header-logo {
+    width: 100px;        /* Ubah angka ini sesuai keinginan (makin besar makin oke) */
+    height: auto;        /* Biar tingginya otomatis ngikutin lebar supaya nggak penyet */
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.1)); /* Efek glow halus */
+    transition: transform 0.3s ease; /* Biar pas di-hover ada animasinya */
+}
+
+.header-logo:hover {
+    transform: scale(1.1); /* Efek membesar sedikit pas kursor di atas logo */
+}
+
+html {
+    scroll-behavior: smooth; /* Kunci biar nggak patah-patah */
+}
+
+/* Biar pas diklik, judul section nggak 'nyundul' ke paling atas layar */
+section {
+    scroll-margin-top: 100px; /* Jaga jarak pas berhenti scroll */
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* biar switch ke atas */
+}
+
+.status-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

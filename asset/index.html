@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Tech Indoor - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Tambahkan ini di style.css kamu agar scroll terasa mulus */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>DASHBOARD</h2>
+            <nav class="menu-container">
+                <ul>
+                    <li><a href="#pengertian"><i class="fas fa-book-open"></i> Pengertian</a></li>
+                    <li><a href="#projects"><i class="fas fa-leaf"></i> Projects</a></li>
+                    <li><a href="#Switch-Control"><i class="fas fa-tasks"></i> Switch Control </a></li>
+                    <li><a href="#monitoring-ph"><i class="fas fa-droplet"></i> Monitoring pH</a></li>
+                    <li><a href="#active-projects"><i class="fas fa-tasks"></i> Active Projects</a></li>
+                </ul>
+            </nav>
+            
+            <div class="status-fixed-info">
+                <div class="status-indicator online"></div> 
+                <span class="status-label" id="status">Tersambung</span>
+            </div> 
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <h2 style="font-size: 35px; color: #ffffff; margin: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">A G R O      T E C H      I N D O O R</h2> 
+                <img src="img/logo3.png" alt="Logo" class="header-logo">
+            </header>
+
+            <!-- SECTION PENGERTIAN -->
+            <section id="pengertian" style="margin-bottom: 40px;">
+                <h2 style="font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">Pengertian</h2>
+                <div class="card" style="background: transparent; border: 1px dashed #333;">
+                    <p class="description-text">
+                        <b style="color: white;">Sistem Monitoring:</b> Dashboard ini digunakan untuk memantau parameter lingkungan secara real-time.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION PROJECTS (SENSORS) -->
+            <section id="projects">
+                <h2 style="font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">Projects</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <p>pH Air</p>
+                        <h3><span id="phAir">?</span></h3>
+                        <span>Status: Normal</span>
+                    </div>
+
+                    <div class="card">
+                        <p>Suhu Air</p>
+                        <h3><span id="suhuAir">?</span>°C</h3>
+                        <span>Status: Stabil</span>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header-flex">
+                            <div class="status-text-group">
+                                <p>Kualitas Gas</p>
+                                <h3 class="warning-text"><span id="gas">?</span>PPM</h3>
+                                <span class="status-gas">Udara Bersih</span>
+                            </div>
+                        </div>
+                        <span style="color: var(--apricot); display:block; margin-top: 10px;">Segera Nyalakan Exhaust</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION SWITCH (Sudah diperbaiki ID-nya agar sesuai sidebar) -->
+            <section id="switch" style="margin-top: 40px;">
+                <h2 style="font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">Switch Control</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <p>Fan</p>
+                        <label class="switch">
+                            <input type="checkbox" id="fanToggle" checked> <!-- ID diperbaiki -->
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="card">
+                        <p>LED</p>
+                        <label class="switch">
+                            <input type="checkbox" id="ledToggle" checked> <!-- ID diperbaiki -->
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION MONITORING PH -->
+            <section id="monitoring-ph" style="margin-top: 40px;">
+                <h2 style="font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">Monitoring pH</h2>
+                <div class="card-grid">
+                <div class="card wide-chart-card">
+                    <div class="chart-main">
+                        <div class="y-axis">
+                            <span>14</span><span>10</span><span>7</span><span>4</span><span>0</span>
+                        </div>
+                        <div class="graph-area">
+                            <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                                <path d="M0,30 Q20,10 40,25 T80,15 T100,20" fill="none" stroke="#2ECC71" stroke-width="2" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION ACTIVE PROJECTS -->
+            <section id="active-projects">
+                <h2 style="font-size: 13px; color: #444; margin: 40px 0 20px; letter-spacing: 2px; font-weight: 700;">Active Projects</h2>
+                <div class="table-container">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Sensor Type</th>
+                                <th>Last Check</th>
+                                <th>Priority</th>
+                                <th>Uptime</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>pH Meter Analog</td>
+                                <td>2 mins ago</td>
+                                <td><span class="badge">High</span></td>
+                                <td>99.9%</td>
+                            </tr>
+                            <tr>
+                                <td>DHT22 Temperature</td>
+                                <td>5 mins ago</td>
+                                <td><span class="badge">Medium</span></td>
+                                <td>98.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
